@@ -1,0 +1,12 @@
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 209">
+    <defs>
+        <style>.cls-1,.cls-2{fill:#fff;}.cls-2{font-size:89.35px;font-family:MyriadPro-Bold, Myriad Pro;font-weight:700;}.cls-3{letter-spacing:0em;}.cls-4{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:10px;}</style>
+    </defs>
+    <path class="cls-1" d="M147.68,58.24h-103A16.67,16.67,0,0,0,28.05,74.89v59.22a16.67,16.67,0,0,0,16.64,16.65h103a16.67,16.67,0,0,0,16.65-16.65V74.89A16.67,16.67,0,0,0,147.68,58.24ZM139.55,69.1,96.19,97,52.83,69.1Zm8.13,70.8h-103a5.79,5.79,0,0,1-5.78-5.79V75.2l53.93,34.68.22.11.24.13a6.37,6.37,0,0,0,1.29.5l.13,0a6.63,6.63,0,0,0,1.46.18h0a6,6,0,0,0,1.46-.18l.14,0a6.37,6.37,0,0,0,1.29-.5l.24-.13.22-.11L153.47,75.2v58.91A5.8,5.8,0,0,1,147.68,139.9Z" />
+    <text class="cls-2" transform="translate(168.14 134.71)">
+        Email
+        <tspan class="cls-3" x="238.83" y="0">M</tspan>
+        <tspan x="314.69" y="0">e!</tspan>
+    </text>
+    <rect class="cls-4" x="5" y="5" width="572" height="199" rx="26.57" />
+</svg>
