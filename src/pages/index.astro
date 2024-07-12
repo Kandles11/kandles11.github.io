@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+---
+
+<Base title="Mason Thomas">
+	<main>
+		<div class="skip-nav" style="padding-top: 116px"></div>
+		<div class="hero">
+			<div class="text-content">
+			<h1>Hey, I'm Mason, and I deliver <br>full-stack solutions</h1>
+			<h2>With experience in frontend and backend <br> technologies, I create solutions.</h2>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		color: white;
+	}
+
+	.hero {
+		height: 100vh;
+	}
+	h1 {
+		padding: 0;
+		margin-top: 20px;
+		font-size: 3.3rem;
+		font-weight: 510;
+		line-height: 1.1;
+	}
+
+	h2 {
+		opacity: 0.7;
+		font-size: 21px;
+		font-weight: 480;
+		letter-spacing: -0.37px;
+	}
+
+	.hero {
+		padding: 0;
+		display:flex;
+		justify-content: center;
+		margin: auto;
+	}
+
+	.text-content {
+		padding: 0;
+		width: 50%;
+	}
+
+</style>

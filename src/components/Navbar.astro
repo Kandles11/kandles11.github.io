@@ -1,0 +1,116 @@
+---
+interface Links {
+  title: string;
+  href: string;
+}
+
+let navbarLinks: Links[] = [
+  { title: "Mason Thomas", href: "/" },
+  { title: "About", href: "/" },
+  { title: "Projects", href: "/" },
+  { title: "LinkedIn", href: "https://www.linkedin.com/in/masonthomas14/" },
+  { title: "GitHub", href: "https://github.com/Kandles11" },
+];
+
+import ProjectNavbarContent from "./ProjectNavbarContent.astro";
+---
+
+<div class="header">
+    <div class="header-gradient-bg"/>
+    <div class="navbar-container">
+        <div class="link-container">
+            {navbarLinks.map((link) => <a class="navbar-link" href={link.href}>{link.title}</a>)}
+        </div>
+        <div class="project-navbar-content navbar-content">
+            <ProjectNavbarContent />
+        </div>
+        <div class="about-navbar-content navbar-content">
+            <h1>About Content here</h1>
+        </div>
+      </div>
+</div>
+<style>
+    .header {
+        position: fixed;
+        left: 0;
+        right: 0;
+
+    }
+    
+    .header-gradient-bg {
+        background: hsla(0,0%,4%,.8);
+        height: 64px;
+        backdrop-filter: blur(5px);
+        mask-image: linear-gradient(to bottom, #000 20%, transparent calc(100% - 20%));
+        position: absolute;
+        z-index: 0;
+    }
+    
+    .navbar-container {
+        display: flex;
+        flex-flow: column;
+        margin: auto;
+        border-radius: 16px;
+        width: 50%;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.2);
+        min-height: 48;
+        backdrop-filter: blur(12px);
+        border: 1px solid hsla(0,0%,100%,.1);
+        z-index: 1;
+    }
+
+    .link-container {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+    }
+
+    .navbar-link {
+        color: white;
+        opacity: 100%;
+        text-decoration: none;
+    }
+
+    .navbar-content {
+        color: white;
+        transition: max-height 0.5s ease-in;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    let navbarLinks = document.querySelectorAll('.navbar-link');
+    let projectContent = document.querySelector('.project-navbar-content');
+    let aboutContent = document.querySelector('.about-navbar-content');
+    let navbarContainer = document.querySelector('.navbar-container');
+
+
+    navbarLinks.forEach((link) => {
+        if (link.textContent === 'Projects') {
+            link.addEventListener('mouseover', () => {
+                projectContent.style.maxHeight = '500px';
+                aboutContent.style.maxHeight = '0';
+            });
+        } else if (link.textContent === 'About') {
+            link.addEventListener('mouseover', () => {
+                aboutContent.style.maxHeight = '500px';
+                projectContent.style.maxHeight = '0';
+            });
+        } else {
+            link.addEventListener('mouseover', () => {
+                aboutContent.style.maxHeight = '0';
+                projectContent.style.maxHeight = '0';
+            });
+        }
+    });
+
+    navbarContainer.addEventListener('mouseleave', () => {
+        aboutContent.style.maxHeight = '0';
+        projectContent.style.maxHeight = '0';
+    });
+});
+</script>
