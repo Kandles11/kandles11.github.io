@@ -1,0 +1,26 @@
+---
+const { depth, image } = Astro.props;
+---
+<div class="webframe">
+    <img src={image} alt="Hero Image" />
+</div>
+<style>
+    .webframe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        border: solid 1px #ccc;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        border: 1px solid hsla(0,0%,100%,.1);
+        border-radius: 16px;
+        z-index: {depth};
+    }
+    img {
+        border-radius: 10px;
+        box-shadow: -30px 70px 150px -20px rgba(51, 51, 51, 0.25);
+        width: 100%;
+        height: auto;
+    }
+</style>
