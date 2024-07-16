@@ -34,7 +34,7 @@ import ProjectNavbarContent from "./ProjectNavbarContent.astro";
         position: fixed;
         left: 0;
         right: 0;
-
+        z-index: 1;
     }
     
     .header-gradient-bg {
@@ -43,7 +43,6 @@ import ProjectNavbarContent from "./ProjectNavbarContent.astro";
         backdrop-filter: blur(5px);
         mask-image: linear-gradient(to bottom, #000 20%, transparent calc(100% - 20%));
         position: absolute;
-        z-index: 0;
     }
     
     .navbar-container {
@@ -57,7 +56,6 @@ import ProjectNavbarContent from "./ProjectNavbarContent.astro";
         min-height: 48;
         backdrop-filter: blur(12px);
         border: 1px solid hsla(0,0%,100%,.1);
-        z-index: 1;
     }
 
     .link-container {
@@ -65,7 +63,7 @@ import ProjectNavbarContent from "./ProjectNavbarContent.astro";
         display: flex;
         gap: 16px;
         justify-content: space-between;
-    }
+    } 
 
     .navbar-link {
         font-size: 14px;
@@ -74,7 +72,7 @@ import ProjectNavbarContent from "./ProjectNavbarContent.astro";
         text-decoration: none;
     }
 
-    .navbar-content {
+     .navbar-content {
         color: white;
         transition: max-height 0.5s ease-in;
         overflow: hidden;
