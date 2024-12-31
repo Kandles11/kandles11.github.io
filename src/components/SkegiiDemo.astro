@@ -1,0 +1,373 @@
+<div class="maincontainer">
+    <div class="project-text-content">
+        <h2>UTD Schedule Optimizer</h2>
+        <h3>a browser extension designed<br> to improve student lives</h3>
+    </div>
+    <div class="democontainer">
+        <div class="outercontainer">
+            <div class="appcontainer">
+                <div class="topbar">
+                    <div class="buttonsection">
+                        <div class="traffic"/>
+                        <div class=" traffic"/>
+                        <div class="traffic"/>
+                    </div>
+                    <div class="searchbar">
+                        <p>https://utdallas.edu</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="attendance-inner">
+                        <div>
+                            <h4>Attendance</h4>
+                            <span>43</span>
+                        </div>
+                        <div class="profile-pictures">
+                            <img src="mason.jpg" alt="Profile 1">
+                            <img src="tisha.jpg" alt="Profile 2">
+                            <img src="jason.jpg" alt="Profile 3">
+                            <img src="tian.jpg" alt="Profile 4">
+                            <img src="jaime.jpg" alt="Profile 5">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Major Distribution</h4>
+                </div>
+            </div>
+        </div>
+        <div class="extensioncontainer">
+            <div class="extensionback"/>
+            <div class="extensionapp">
+                <h3>Building your schedule...</h3>
+                <p>1,398 schedules parsed</p>
+                <div class="extensionoptions">
+                    <p>Time Preference</p>
+                    <div class="segmented-picker">
+        
+                        <!-- Works with up to 9 items -->
+                    
+                        <input id="item-1" type="radio" name="picker" checked />
+                        <label for="item-1"><span>Morning</span></label>
+                    
+                        <input id="item-2" type="radio" name="picker" />
+                        <label for="item-2"><span>Afternoon</span></label>
+                    
+                        <input id="item-3" type="radio" name="picker" />
+                        <label for="item-3"><span>Evening</span></label>
+                    
+                    </div>
+                    <p>Schedule Ranking</p>
+                    <div class="segmented-picker">
+        
+                        <!-- Works with up to 9 items -->
+                    
+                        <input id="item-4" type="radio" name="picker" checked />
+                        <label for="item-4"><span>Grades</span></label>
+                    
+                        <input id="item-5" type="radio" name="picker" />
+                        <label for="item-5"><span>Rating</span></label>
+                    
+                        <input id="item-6" type="radio" name="picker" />
+                        <label for="item-6"><span>Time</span></label>
+                    
+                    </div>
+                </div>
+        
+            </div>
+    </div>
+    
+    </div>
+    
+</div>
+
+<style>
+.extensionoptions {
+    padding: 12px;
+}
+.segmented-picker {
+    margin-top: 4px;
+    margin-bottom: 4px;
+	align-items: center;
+	border-radius: 8px;
+	display: flex;
+	overflow: hidden;
+	padding: 2px;
+    background: rgba(255, 255, 255, 0.04);
+    width: 250px;
+	& > input {
+		pointer-events: none;
+		position: absolute;
+		visibility: hidden;
+
+		&:nth-last-of-type(1):checked ~ label:last-of-type::before {
+			left: 0;
+		}
+
+		&:nth-last-of-type(2):checked ~ label:last-of-type::before {
+			left: -100%;
+		}
+
+		&:nth-last-of-type(3):checked ~ label:last-of-type::before {
+			left: -200%;
+		}
+
+		&:nth-last-of-type(4):checked ~ label:last-of-type::before {
+			left: -300%;
+		}
+
+		&:nth-last-of-type(5):checked ~ label:last-of-type::before {
+			left: -400%;
+		}
+
+		&:nth-last-of-type(6):checked ~ label:last-of-type::before {
+			left: -500%;
+		}
+
+		&:nth-last-of-type(7):checked ~ label:last-of-type::before {
+			left: -600%;
+		}
+
+		&:nth-last-of-type(8):checked ~ label:last-of-type::before {
+			left: -700%;
+		}
+
+		&:nth-last-of-type(9):checked ~ label:last-of-type::before {
+			left: -800%;
+		}
+	}
+
+	& > label {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		padding: 8px;
+		position: relative;
+
+		& > span {
+			font-size: 12px;
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			position: relative;
+			z-index: 2;
+		}
+
+		&:not(:first-of-type) {
+			&::after {
+				background-color: rgba(0 0 0 / 0.12);
+				content: "";
+				display: block;
+				height: 16px;
+				left: 0;
+				position: absolute;
+				width: 1px;
+				z-index: 0;
+			}
+		}
+
+		&:last-of-type {
+			&::before {
+				border-radius: 6px;
+				box-shadow: 0 2px 6px rgba(0 0 0 / 0.12), 0 0 0 2px #f2f2f7;
+				content: "";
+				display: block;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				transition: 0.25s ease;
+				width: 95%;
+				z-index: 1;
+			}
+		}
+	}
+}
+    .democontainer {
+        position: relative;
+    }
+    .extensioncontainer {
+        position: absolute;        
+        left: 150px;
+        top: -22px;
+        width: 58%;
+        background-color: rgba(255,255,255,.02);
+        padding: 10px;
+        border-radius: 24px;
+        border: solid rgba(255,255,255,0.1) 1px;
+        backdrop-filter: blur(10px);
+    }
+
+    .extensionapp h3{
+        opacity: 100%
+    }
+
+    .extensionback {
+        position: absolute;
+        width: 94%;
+        height: 201px;
+        z-index: -1;
+        border-radius:12px;
+        background-color: rgb(9,9,9);
+    }
+
+    .extensionapp {
+                padding: 12px;
+        border-radius: 12px;
+        height: 100%; 
+        background: linear-gradient(134deg, hsla(0,0%,100%,.08), hsla(0,0%,100%,.02), hsla(0,0%,100%,0) 55%), url('noise.png');
+        border: rgba(255, 255, 255, 0.15) solid 1px;
+    }
+
+    
+
+    .extension img{
+        height: 50px;
+    }
+    .buttonsection {
+        display: flex;
+        align-items: center;
+    }
+    .traffic {
+        background: rgba(255, 255, 255, 0.2);
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        margin: 3px;
+    }
+    .searchbar {
+        border-radius: 12px;
+        width: 60%;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px;
+        padding-left: 12px;
+    }
+
+    .attendance-inner {
+        display: flex;
+        gap: 30px;
+    }
+
+    .maincontainer {
+        width: 100%;
+        padding: 18px;
+        padding-left: 0px;
+    }
+
+    .project-text-content {
+        margin-bottom: 36px;
+    }
+
+    .outercontainer {
+        border: solid hsla(0, 0%, 100%, .08) 1px;
+        border-radius: 18px;
+        padding: 8px;
+    }
+
+    .appcontainer {
+        padding: 8px;
+        border-radius: 10px;
+        filter: blur(4px)
+    }
+
+    .topbar {
+        gap: 12px;
+        padding: 8px;
+        width: 100%;
+        display: flex;
+        border-bottom: solid hsla(0, 0%, 100%, .1) 2px;
+    }
+
+    .topbar img {
+        width: 22%;
+    }
+
+    .titlebar {
+        width: 100%;
+        display: flex;
+    }
+
+    .titlebar h3 {
+        margin: auto;
+    }
+
+    .card {
+        border: solid hsla(0, 0%, 100%, .1) 1px;
+        border-radius: 10px;
+        padding: 16px;
+        margin-top: 16px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .card h4 {
+        margin-bottom: 8px;
+    }
+
+    .card ol, .card p {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .profile-pictures {
+        display: flex;
+        margin-top: 8px;
+    }
+
+    .profile-pictures img {
+        filter: grayscale(0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid hsla(0, 0%, 100%, .2);
+        margin-left: -10px;
+        transition: transform 0.3s ease;
+    }
+
+    .profile-pictures img:hover {
+        transform: scale(1.1);
+    }
+
+    .profile-pictures img:nth-of-type(2) {
+        filter: brightness(.7)
+    }
+
+    .profile-pictures img:nth-of-type(3) {
+        filter: brightness(.6)    
+    }
+
+    .profile-pictures img:nth-of-type(4) {
+        filter: brightness(.5)
+    }
+
+    .profile-pictures img:nth-of-type(5) {
+        filter: brightness(.4)
+    }
+
+    h2 {
+        font-size: 21px;
+        margin: 0;
+        line-height: 28px;
+        letter-spacing: -.37px;
+        font-weight: 510;
+    }
+
+    h3 {
+        margin: 0;
+        opacity: 80%;
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    p {
+        margin: 0;
+        font-size: 14px;
+        opacity: 80%;
+    }
+</style>

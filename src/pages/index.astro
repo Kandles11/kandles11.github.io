@@ -1,8 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
 import HeroDemo from "../components/HeroDemo.astro";
+import ChessProject from '../components/ChessProject.astro';
+import ClubManagerDemo from "../components/ClubManagerDemo.astro";
+import SkegiiDemo from "../components/SkegiiDemo.astro";
 ---
-
 <Base title="Mason Thomas">
   <main>
     <div class="skip-nav" style="padding-top: 116px"></div>
@@ -29,61 +31,116 @@ import HeroDemo from "../components/HeroDemo.astro";
         </div>
       </div>
     </div>
+    <div class="projects">
+      <div class="grid">
+        <div class="a">
+          <ClubManagerDemo/>
+        </div>
+        <div class="b">
+          <SkegiiDemo/>
+        </div>
+        <div class="c">
+          <ChessProject/>
+        </div>
+      </div>
+    </div>
   </main>
 </Base>
 
 <style>
+  .projects {
+    padding-left: 48px;
+    padding-right: 48px;
+    max-width: calc(1024px + 32px + 32px);
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .a, .b, .c {
+    padding: 12px;
+    border-style: solid;
+    border-color: hsla(0, 0%, 100%, .05);
+    border-width: 2px;
+  }
+
+  .a {
+    grid-area: 1 / 1 / 2 / 2;
+    border-left: 0;
+  }
+
+  .b {
+    grid-area: 1 / 2 / 2 / 3;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .c {
+    grid-area: 2 / 1 / 3 / 3;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+  }
+
   main {
-    color: white;
+    color: #f7f8f8;
   }
 
   .hero {
     height: 100vh;
   }
+
   h1 {
     padding: 0;
+    margin: 0px;
     margin-top: 20px;
     font-size: 3.3rem;
-    font-weight: 510;
+    font-weight: 580;
     line-height: 1.1;
   }
 
-  .fadeIn span{
-  opacity: 0;
-  filter: blur(12px);
-  transform: translateX(-20px) translateY(30px);
-  animation: fadeIn 1s ease-out forwards;
-  display:inline-block;
-}
-
-.fadeIn span:nth-of-type(1){
-  animation-delay: .8s;
-}
-
-.fadeIn span:nth-of-type(2){
-  animation-delay: .9s;
-}
-
-.fadeIn span:nth-of-type(3){
-  animation-delay: 1.0s;
-}
-
-.fadeIn span:nth-of-type(4){
-  animation-delay: 1.1s;
-}
-
-.fadeIn h2 span {
-  animation-delay: 1.2s;
-}
-
-
-@keyframes fadeIn{
-  to{
-	filter: blur(0px);
-    opacity: 1;
-    transform: translateX(0) translateY(0);
+  .fadeIn span {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-20px) translateY(30px);
+    animation: fadeIn 1s ease-out forwards;
+    display: inline-block;
   }
-}
+
+  .fadeIn span:nth-of-type(1) {
+    animation-delay: .8s;
+  }
+
+  .fadeIn span:nth-of-type(2) {
+    animation-delay: .9s;
+  }
+
+  .fadeIn span:nth-of-type(3) {
+    animation-delay: 1.0s;
+  }
+
+  .fadeIn span:nth-of-type(4) {
+    animation-delay: 1.1s;
+  }
+
+  .fadeIn h2 span {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes fadeIn {
+    to {
+      filter: blur(0px);
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+  }
 
   h2 {
     opacity: 0.7;
@@ -99,14 +156,17 @@ import HeroDemo from "../components/HeroDemo.astro";
   }
 
   .text-content {
-    margin: 20px auto; /* Adjust this value as needed */
-    padding: 0;
-    width: 50%;
+    padding-left: 48px;
+    padding-right: 48px;
+    max-width: calc(1024px + 32px + 32px);
+    width: 100%;
+    margin-inline: auto;
   }
 
   .demo {
-    margin: 0 auto; /* Adjust this value as needed */
+    margin: 0 auto;
     padding: 0;
+    margin-bottom: 1000px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -139,12 +199,12 @@ import HeroDemo from "../components/HeroDemo.astro";
   }
 
   .frame:nth-child(3) {
-
     top: 15%;
     left: 10%;
     --z: -20px;
   }
-  
+
+
   .frame:nth-child(1):hover {
     --z: 80px;
     transition: transform 0.5s ease-in-out;
@@ -195,4 +255,76 @@ import HeroDemo from "../components/HeroDemo.astro";
       hsla(0, 0%, 45%, 0) 80%
     );
   }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .a, .b, .c {
+    border-width: 1px;
+    padding: 8px; /* Adjusted padding for smaller screens */
+  }
+
+  .a {
+    grid-area: 1;
+  }
+  .b {
+    grid-area: 2;
+  }  .c {
+    grid-area: 3;
+  }
+  
+  .demo {
+    width: 50%;
+  }
+
+
+
+  .frame {
+    width: 90%;
+    left: 5%;
+    transform: none; /* Remove 3D transform for simpler layout */
+    box-shadow: none; /* Remove box-shadow for cleaner look */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .text-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .frame {
+    width: 100%;
+    left: 0;
+    transform: none; /* Remove 3D transform for simpler layout */
+    box-shadow: none; /* Remove box-shadow for cleaner look */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .text-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+
 </style>

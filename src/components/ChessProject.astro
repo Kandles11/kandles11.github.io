@@ -1,0 +1,90 @@
+---
+import HeroDemo from "./HeroDemo.astro"
+---
+<div class="project-container">
+    <div class="project-text-content">
+    <h2>Chessbots</h2>
+    <h3>a fleet of fully-autonomous,<br>life-size, chess-playing robots</h3>
+    <a><div class="project-button">Learn More</div></a>
+    </div>
+    <div class="img-container"><img src="chessTexture.jpg" alt="chessboard texture">
+    </div>
+    <div class="frame">
+        <HeroDemo image="chesspage.png"/>
+    </div>
+    
+</div>
+
+<style>
+h2 {
+    font-size: 21px;
+    margin: 0;
+    line-height: 28px;
+    letter-spacing: -.37px;
+    font-weight: 510;
+}
+h3 {
+    margin: 0;
+    opacity: 80%;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.project-button {
+    width: 90px;
+    font-size: 13px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    color: #8a8f98;
+    background-color: #28282c;
+    padding: 8px;
+}
+
+.project-container {
+    width: 95%;
+    height: 300px;
+    margin: auto;
+    position: relative; /* Ensure the container is positioned */
+}
+
+.project-text-content {
+    padding: 32px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Lower z-index */
+}
+
+.img-container {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Ensure the image container is positioned */
+    z-index: 0; /* Lower z-index */
+}
+
+img {
+    filter: grayscale(100%);
+    opacity: 40%;
+    -webkit-mask-image: -webkit-gradient(linear, right top, left bottom, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: blur(3px);
+}
+
+.frame {
+    transform-style: preserve-3d;
+    transform: rotateX(29deg) rotateY(-32deg) rotateZ(15deg);
+    box-shadow: -30px 70px 150px -20px rgba(51, 51, 51, 0.25);
+    position: absolute;
+    width: 46%;
+    overflow: hidden;
+    animation-delay: 2s;
+    z-index: 2; 
+    right: 0;
+}
+</style>
