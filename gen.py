@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # === Configuration ===
 ARTICLES_DIR = 'articles'
 TEMPLATES_DIR = 'templates'
-OUTPUT_DIR = 'output'
+OUTPUT_DIR = 'docs'
 HEADER_FILE = os.path.join(TEMPLATES_DIR, 'header.html')
 
 # === Helpers ===
