@@ -39,3 +39,11 @@ body {
     background-color: #f0f0f0;
     max-width: 1000px;
 }
+
+code {
+    background-color: rgb(225,225,225);
+    font-weight: bold;
+    border-radius: 0.5ch;
+    padding-left: .3ch;
+    padding-right: .3ch;
+}

@@ -1,5 +1,15 @@
 .header h1{
     text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.header i {
+    font-size: 14px;
+}
+
+.header p {
+    font-size: 14px;
+    margin: 2px;
 }
 
 section .heading {
