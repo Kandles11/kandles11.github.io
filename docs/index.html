@@ -1,22 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Static Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/index.css">
-</head>
-<body>
-<nav>
-    <center>
-        <div style="display: inline-block; vertical-align:middle; text-decoration: none;">
-    <a style="text-decoration:none" href="/" class="title"><b>MASON THOMAS' WEBSITE</b><br>
-    </a><hr><div style="text-align: justify;display: inline-block; width: 100%;">
-    <!-- <a class="title" href="/about/index.html">ABOUT</a> &nbsp;<a class="title" href="/contact/index.html">EMAIL</a> &nbsp;<a class="title" href="../rss.xml">RSS</a> &nbsp;<a class="title" href="https://paypal.me/fabiensanglard">DONATE</a></div></div> -->
-    <a style="text-decoration: none" class="title" href="/about/index.html">ABOUT</a> &nbsp;<a style="text-decoration: none" class="title" href="/contact/index.html">CONTACT</a> &nbsp;<a  style="text-decoration: none" class="title" href="/now/index.html">NOW</a> &nbsp;<a  style="text-decoration: none" class="title" href="https://portfolio.masont.dev">PORTFOLIO</a></div></div>
-    
-    </center>
-</nav><h1>All Articles</h1>
-<ul>
-  <li><span>2025-04-29 : </span><a href="this-site/">About This Site</a></li>
-</ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mason Thomas</title>
+    <style>
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: #f4f6fb;
+        margin: 0;
+        padding: 60px 40px;
+        color: #1f2a44;
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+      }
+
+      .container {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        gap: 120px;
+      }
+
+      .left {
+        flex: 3;
+      }
+
+      .right {
+        flex: 1;
+        position: sticky;
+        top: 40px;
+        height: max-content;
+      }
+
+      .hero {
+          max-width: 1300px;
+          margin-top: 0px;
+          margin-bottom: 40px;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 20px;
+          overflow: hidden;
+          color: white;
+
+          --_gradient-blend-mode: normal;
+          --_gradient-blur: 0px;
+
+          background: radial-gradient(at 2% 72%, #0F401E 0px, transparent 50%), radial-gradient(at 73.3% 71.8%, #123D28 0px, transparent 50%), radial-gradient(at 35% 28%, #0A8C24 0px, transparent 50%), radial-gradient(at 78% 32%, #076307 0px, transparent 50%), radial-gradient(at 76% 3%, #63C294 0px, transparent 50%) #000000;;
+          mix-blend-mode: var(--_gradient-blend-mode);
+
+              
+          .frosted-backdrop {
+          backdrop-filter: blur(var(--_gradient-blur)) contrast(100%) brightness(100%);
+          -webkit-backdrop-filter: blur(var(--_gradient-blur)) contrast(100%) brightness(100%);
+}
+
+          padding: 40px 60px;
+        }
+
+        .hero-inner {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+        }
+
+        .hero-image {
+          width: 100px;
+          border-radius: 16px;
+          object-fit: cover;
+        }
+
+        .hero-text {
+          flex: 1;
+        }
+
+        .intro {
+          font-size: 24px;
+          font-weight: 600;
+          margin: 0 0 25px;
+          line-height: 1.25;
+        }
+
+        .badge {
+          background: #FFB100;
+          color: black;
+          padding: 2px 6px;
+          border-radius: 10px;
+          font-weight: 600;
+          display: inline-block;
+        }
+
+        .subtext {
+          font-size: 20px;
+          font-weight: 500;
+          margin: 0;
+          opacity: 0.9;
+        }
+
+      .year-group {
+        display: grid;
+        grid-template-columns: 80px 1fr; /* Year column + posts column */
+        row-gap: 10px;
+        align-items: start;
+        margin-bottom: 13px;
+      }
+
+      .year-container {
+        grid-row: 1 / -1; /* Makes year span full column */
+        grid-column: 1;
+      }
+
+      .year {
+        font-weight: 700;
+        font-size: 15px;
+        color: #1e293b;
+        margin: 0;
+      }
+
+      .post {
+        grid-column: 2; /* Posts in second column */
+        display: flex;
+        gap: 10px; /* Space between date + link */
+        font-size: 15px;
+      }
+
+      .date {
+        display: inline-block;
+        width: 75px;
+        color: #a3abc2;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .post a {
+        border: 0 solid #e5e7eb;
+        color: rgb(71 85 105);
+        font-weight: 500;
+        transition: opacity 0.2s ease;
+        text-decoration: none;
+        border-bottom-width: 2px;
+        border-color: rgb(224 231 255);
+      }
+
+      .post a:hover {
+        opacity: 0.6;
+      }
+
+      .right h3 {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2a44;
+        margin-bottom: 18px;
+      }
+
+      .bio-section {
+        margin-bottom: 22px;
+        font-size: 13px;
+        color: #5a6279;
+        line-height: 1.55;
+      }
+
+      .bio-section a {
+        color: #4d6dff;
+        text-decoration: none;
+      }
+
+      .bio-section a:hover {
+        text-decoration: underline;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-icons span {
+        opacity: 0.35;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* Mobile responsive styles */
+      @media (max-width: 768px) {
+        body {
+          padding: 40px 16px;
+        }
+
+        .container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .right {
+          position: static;
+        }
+
+        .year-group {
+          grid-template-columns: 1fr; /* Single column on mobile */
+          gap: 8px;
+        }
+
+        .year-container {
+          grid-row: 1;
+          grid-column: 1;
+          margin-bottom: 4px;
+        }
+
+        .post {
+          grid-column: 1;
+          /* Keep flex-direction: row to keep dates next to titles */
+          gap: 8px;
+        }
+
+        .date {
+          width: 60px; /* Smaller width on mobile but still fixed */
+          flex-shrink: 0; /* Prevent date from shrinking */
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 30px 12px;
+          font-size: 15px;
+        }
+
+        .container {
+          gap: 30px;
+        }
+
+        .year {
+          font-size: 14px;
+        }
+
+        .post {
+          font-size: 14px;
+        }
+
+        .date {
+          font-size: 13px;
+          width: 55px; /* Even smaller on very small screens */
+        }
+
+        .right h3 {
+          font-size: 20px;
+        }
+
+        .bio-section {
+          font-size: 14px;
+        }
+
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="hero">
+          <div class="hero-inner">
+
+            <div class="hero-text">
+              <p class="intro">
+                Mason Thomas is a
+                <span class="badge">software engineer</span>
+                and
+                <span class="badge">maker</span>
+                in the Bay Area.
+              </p>
+
+              <p class="subtext">
+                Here's a bunch of stuff I've made.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="year-group">
+  <div class="year-container"><p class="year">2025</p></div>
+  <div class="post">
+    <span class="date">Dec 23</span>
+    <a href="/2026/">2026 - The year of making</a>
+  </div>
+  <div class="post">
+    <span class="date">Nov 30</span>
+    <a href="/go-kart/">Building a Go-kart from an electric wheelchair</a>
+  </div>
+</div>
+      </div>
+
+      <!-- RIGHT SIDE BIO -->
+      <div class="right">
+        <h3>Mason Thomas</h3>
+
+        <div class="bio-section">
+          <strong>Currently</strong> / SWE at
+          <a href="https://rivianvw.tech">Rivian & Volkswagen Technologies</a
+          >.<br />
+        </div>
+
+        <div class="bio-section">
+          <strong>Previously</strong> / Computer Science major at the University
+          of Texas at Dallas
+        </div>
+
+        <div class="bio-section">
+          <a href="#">More about Mason →</a>
+        </div>
+
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/masonthomas14/"
+            ><span>💼</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
