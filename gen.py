@@ -200,8 +200,8 @@ class StaticSiteGenerator:
         for item in items:
             item_path = os.path.join(INPUT_DIR, item)
             
-            # Skip index.md and about.md
-            if item in ['index.md', 'about.md']:
+            # Skip non-article content
+            if item in ['index.md', 'about.md', 'about']:
                 continue
             
             # Check if it's a directory (folder-based article)
