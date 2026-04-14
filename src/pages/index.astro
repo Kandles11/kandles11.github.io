@@ -1,0 +1,144 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const groupedByYear = Object.entries(
+  posts.reduce<Record<string, typeof posts>>((acc, post) => {
+    const year = String(post.data.date.getFullYear());
+    acc[year] ??= [];
+    acc[year].push(post);
+    return acc;
+  }, {})
+).sort(([a], [b]) => Number(b) - Number(a));
+
+const formatShortDate = (date: Date) =>
+  date.toLocaleDateString("en-US", { month: "short", day: "2-digit" });
+---
+
+<SiteLayout pageTitle="Mason Thomas">
+  <section class="hero">
+    <p class="intro">
+      Mason Thomas is a <span class="badge">software engineer</span> and
+      <span class="badge">maker</span> in the Bay Area.
+    </p>
+    <p class="subtext">Here's a bunch of stuff I've made.</p>
+  </section>
+
+  {
+    groupedByYear.map(([year, yearPosts]) => (
+      <div class="year-group">
+        <div class="year-container">
+          <p class="year">{year}</p>
+        </div>
+        {yearPosts.map((post) => (
+          <div class="post">
+            <span class="date">{formatShortDate(post.data.date)}</span>
+            <a href={`/${post.slug}/`}>{post.data.title}</a>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</SiteLayout>
+
+<style>
+  .hero {
+    margin-bottom: 40px;
+    padding: 40px 60px;
+    border-radius: 20px;
+    color: white;
+    background: radial-gradient(at 2% 72%, #0f401e 0px, transparent 50%),
+      radial-gradient(at 73.3% 71.8%, #123d28 0px, transparent 50%),
+      radial-gradient(at 35% 28%, #0a8c24 0px, transparent 50%),
+      radial-gradient(at 78% 32%, #076307 0px, transparent 50%),
+      radial-gradient(at 76% 3%, #63c294 0px, transparent 50%) #000000;
+  }
+
+  .intro {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 25px;
+    line-height: 1.25;
+  }
+
+  .badge {
+    background: #ffb100;
+    color: black;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  .subtext {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .year-group {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    row-gap: 10px;
+    align-items: start;
+    margin-bottom: 13px;
+  }
+
+  .year-container {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+
+  .year {
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .post {
+    grid-column: 2;
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+  }
+
+  .date {
+    display: inline-block;
+    width: 75px;
+    color: #a3abc2;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .post a {
+    color: rgb(71 85 105);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid rgb(224 231 255);
+  }
+
+  .post a:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 28px;
+    }
+
+    .year-group {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .year-container,
+    .post {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+</style>

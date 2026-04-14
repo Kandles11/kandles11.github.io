@@ -1,0 +1,30 @@
+---
+import BioSidebar from "../components/BioSidebar.astro";
+import "../styles/site.css";
+
+interface Props {
+  pageTitle?: string;
+}
+
+const { pageTitle = "Mason Thomas" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="container">
+        <main class="left">
+          <slot />
+        </main>
+        <BioSidebar />
+      </div>
+    </div>
+  </body>
+</html>

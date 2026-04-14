@@ -1,0 +1,86 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  alt?: string;
+  caption?: string;
+  reverse?: boolean;
+}
+
+const { title, image, alt = "", caption, reverse = false } = Astro.props;
+---
+
+<section class={`feature-row ${reverse ? "reverse" : ""}`}>
+  <div class="feature-copy">
+    <h3>{title}</h3>
+    <div class="feature-body">
+      <slot />
+    </div>
+  </div>
+  <figure class="feature-media">
+    <img src={image} alt={alt} loading="lazy" />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+</section>
+
+<style>
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 18px;
+    align-items: center;
+    margin: 30px 0;
+    background: transparent;
+  }
+
+  .feature-row.reverse {
+    grid-template-columns: 1fr 1.1fr;
+  }
+
+  .feature-row.reverse .feature-copy {
+    order: 2;
+  }
+
+  .feature-row.reverse .feature-media {
+    order: 1;
+  }
+
+  .feature-copy h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+  }
+
+  .feature-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .feature-media {
+    margin: 0;
+    background: transparent;
+  }
+
+  .feature-row img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .feature-media figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  @media (max-width: 900px) {
+    .feature-row,
+    .feature-row.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-row.reverse .feature-copy,
+    .feature-row.reverse .feature-media {
+      order: unset;
+    }
+  }
+</style>

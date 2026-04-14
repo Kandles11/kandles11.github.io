@@ -1,0 +1,52 @@
+---
+import SiteLayout from "./SiteLayout.astro";
+
+interface Frontmatter {
+  title: string;
+  date?: Date | string;
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<SiteLayout pageTitle={`${frontmatter.title} - Mason Thomas`}>
+  <article class="about-copy">
+    <a href="/" class="home-link">← Home</a>
+    <h1>{frontmatter.title}</h1>
+    <slot />
+  </article>
+</SiteLayout>
+
+<style>
+  .home-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .about-copy {
+    min-width: 0;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .about-copy h1 {
+    margin: 0 0 20px;
+    font-size: 2.3rem;
+    line-height: 1.2;
+  }
+
+  .about-copy :global(h2) {
+    margin-top: 30px;
+  }
+
+  .about-copy :global(p) {
+    color: #334155;
+  }
+</style>

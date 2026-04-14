@@ -1,0 +1,20 @@
+{
+  "name": "kandles11.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/react": "^5.0.3",
+    "astro": "^5.5.0",
+    "framer-motion": "^12.38.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "unist-util-visit": "^5.0.0"
+  }
+}
