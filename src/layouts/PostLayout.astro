@@ -88,4 +88,70 @@ const dateValue = frontmatter.date
     border-radius: 8px;
     margin: 20px 0;
   }
+
+  .article-content :global(table) {
+    width: max-content;
+    max-width: 100%;
+    margin: 24px auto;
+    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .article-content :global(th),
+  .article-content :global(td) {
+    border: 1px solid #dbe3ef;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .article-content :global(th) {
+    background: #f8fbff;
+    font-weight: 600;
+    color: #1f2a44;
+  }
+
+  .article-content :global(blockquote) {
+    position: relative;
+    margin: 30px 0;
+    padding: 18px 22px 18px 52px;
+    border-left: 3px solid #cbd5e1;
+    background: #f8fafc;
+    border-radius: 10px;
+  }
+
+  .article-content :global(blockquote::before) {
+    content: "\201C";
+    position: absolute;
+    left: 12px;
+    top: -14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 64px;
+    line-height: 1;
+    color: #94a3b8;
+    pointer-events: none;
+  }
+
+  .article-content :global(blockquote::after) {
+    content: "\201D";
+    position: absolute;
+    right: 12px;
+    bottom: -32px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 64px;
+    line-height: 1;
+    color: #cbd5e1;
+    pointer-events: none;
+  }
+
+  .article-content :global(blockquote p) {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: #334155;
+    font-style: italic;
+  }
 </style>

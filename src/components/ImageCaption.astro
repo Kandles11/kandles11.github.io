@@ -1,0 +1,52 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  caption?: string;
+  size?: "small" | "medium" | "large";
+}
+
+const { src, alt = "", caption, size = "medium" } = Astro.props;
+const normalizedSize = ["small", "medium", "large"].includes(size)
+  ? size
+  : "medium";
+---
+
+<figure class={`image-caption ${normalizedSize}`}>
+  <img src={src} alt={alt} loading="lazy" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .image-caption {
+    margin: 22px 0;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .image-caption.small {
+    max-width: 420px;
+  }
+
+  .image-caption.medium {
+    max-width: 680px;
+  }
+
+  .image-caption.large {
+    max-width: 100%;
+  }
+
+  .image-caption img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .image-caption figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.4;
+  }
+</style>
