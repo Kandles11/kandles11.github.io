@@ -1,7 +1,27 @@
 :root {
   --bg: #f4f6fb;
   --text: #1f2a44;
+  --muted: #64748b;
+  --subtle-text: #334155;
+  --surface: #ffffff;
+  --surface-soft: #f8fbff;
+  --border: #dbe3ef;
   --link: #4d6dff;
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --text: #e6edf8;
+    --muted: #9aa9c0;
+    --subtle-text: #bfcbdd;
+    --surface: #121a2a;
+    --surface-soft: #1a2336;
+    --border: #2a3650;
+    --link: #8fb2ff;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
 }
 
 * {
@@ -14,6 +34,7 @@ body {
     Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  color-scheme: light dark;
   font-size: 16px;
   letter-spacing: -0.2px;
 }
@@ -58,7 +79,7 @@ a {
   margin-bottom: 22px;
   font-size: 13px;
   line-height: 1.55;
-  color: #5a6279;
+  color: var(--muted);
 }
 
 .bio-section a {

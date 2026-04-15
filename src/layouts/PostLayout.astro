@@ -33,7 +33,7 @@ const dateValue = frontmatter.date
   .home-link {
     display: inline-block;
     margin-bottom: 30px;
-    color: #64748b;
+    color: var(--muted);
     text-decoration: none;
     font-size: 15px;
   }
@@ -54,7 +54,7 @@ const dateValue = frontmatter.date
 
   .article-date {
     font-size: 15px;
-    color: #64748b;
+    color: var(--muted);
     margin: 0 0 30px;
   }
 
@@ -71,7 +71,7 @@ const dateValue = frontmatter.date
 
   .article-content :global(p) {
     margin: 0 0 20px;
-    color: #334155;
+    color: var(--subtle-text);
   }
 
   .article-content :global(a) {
@@ -101,24 +101,24 @@ const dateValue = frontmatter.date
 
   .article-content :global(th),
   .article-content :global(td) {
-    border: 1px solid #dbe3ef;
+    border: 1px solid var(--border);
     padding: 8px 10px;
     text-align: left;
     vertical-align: top;
   }
 
   .article-content :global(th) {
-    background: #f8fbff;
+    background: var(--surface-soft);
     font-weight: 600;
-    color: #1f2a44;
+    color: var(--text);
   }
 
   .article-content :global(blockquote) {
     position: relative;
     margin: 30px 0;
     padding: 18px 22px 18px 52px;
-    border-left: 3px solid #cbd5e1;
-    background: #f8fafc;
+    border-left: 3px solid var(--border);
+    background: var(--surface-soft);
     border-radius: 10px;
   }
 
@@ -130,7 +130,7 @@ const dateValue = frontmatter.date
     font-family: Georgia, "Times New Roman", serif;
     font-size: 64px;
     line-height: 1;
-    color: #94a3b8;
+    color: var(--muted);
     pointer-events: none;
   }
 
@@ -142,7 +142,7 @@ const dateValue = frontmatter.date
     font-family: Georgia, "Times New Roman", serif;
     font-size: 64px;
     line-height: 1;
-    color: #cbd5e1;
+    color: var(--border);
     pointer-events: none;
   }
 
@@ -151,7 +151,7 @@ const dateValue = frontmatter.date
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.08rem;
     line-height: 1.65;
-    color: #334155;
+    color: var(--subtle-text);
     font-style: italic;
   }
 </style>
