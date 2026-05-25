@@ -3,16 +3,26 @@ interface Props {
   src: string;
   alt?: string;
   caption?: string;
-  size?: "small" | "medium" | "large";
+  size?: "xsmall" | "small" | "medium" | "large";
+  placement?: "inline" | "left" | "right";
 }
 
-const { src, alt = "", caption, size = "medium" } = Astro.props;
-const normalizedSize = ["small", "medium", "large"].includes(size)
+const {
+  src,
+  alt = "",
+  caption,
+  size = "medium",
+  placement = "inline"
+} = Astro.props;
+const normalizedSize = ["xsmall", "small", "medium", "large"].includes(size)
   ? size
   : "medium";
+const normalizedPlacement = ["inline", "left", "right"].includes(placement)
+  ? placement
+  : "inline";
 ---
 
-<figure class={`image-caption ${normalizedSize}`}>
+<figure class={`image-caption ${normalizedSize} placement-${normalizedPlacement}`}>
   <img src={src} alt={alt} loading="lazy" />
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
@@ -22,6 +32,10 @@ const normalizedSize = ["small", "medium", "large"].includes(size)
     margin: 22px 0;
     width: 100%;
     margin-inline: auto;
+  }
+
+  .image-caption.xsmall {
+    max-width: 150px;
   }
 
   .image-caption.small {
@@ -36,6 +50,26 @@ const normalizedSize = ["small", "medium", "large"].includes(size)
     max-width: 100%;
   }
 
+  .image-caption.placement-left,
+  .image-caption.placement-right {
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  .image-caption.placement-left {
+    float: left;
+    clear: left;
+    margin-right: 24px;
+    margin-left: clamp(-90px, -8vw, -36px);
+  }
+
+  .image-caption.placement-right {
+    float: right;
+    clear: right;
+    margin-right: clamp(-90px, -8vw, -36px);
+    margin-left: 24px;
+  }
+
   .image-caption img {
     width: 100%;
     height: auto;
@@ -48,5 +82,14 @@ const normalizedSize = ["small", "medium", "large"].includes(size)
     font-size: 13px;
     color: var(--muted);
     line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .image-caption.placement-left,
+    .image-caption.placement-right {
+      float: none;
+      clear: none;
+      margin: 22px auto;
+    }
   }
 </style>
